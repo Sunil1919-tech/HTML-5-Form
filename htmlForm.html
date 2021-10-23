@@ -59,7 +59,7 @@
         </div>
     </form>
 
-    <!--name validation-->
+    <!--name validation  , email Valiodation-->
     <script>
         const text = document.querySelector('#text');
         const textError = document.querySelector('.text-error');
@@ -69,7 +69,17 @@
                 textError.textContent = "";
             else
                 textError.textContent = "Name is incorrect";
-        })
+        });
+
+        const email = document.querySelector('#email');
+        const emailError = document.querySelector('.email-error');
+        email.addEventListener('input', function () {
+            let emailRegex = RegExp("^[a-z][a-zA-Z0-9]+([._+#-][a-zA-Z0-9]+)*@[a-zA-Z0-93]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$")
+            if (emailRegex.test(email.value))
+                emailError.textContent = "";
+            else
+                emailError.textContent = "Email is Incorrect";
+        });
         const salary = document.querySelector('#salary');
         const output = document.querySelector('.salary-output');
         output.textContent = salary.value;
